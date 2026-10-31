@@ -11,6 +11,13 @@ not present, it is simply ignored.
 - **inverse** (*bool**,**optional*) - if `True`, the exclusion will occur during the `inv` call.
 Defaults to `False`.
 
+Note
+
+With `inverse=True` the excluded entries are hidden from the `_step` of
+every transform of the chain, so a stateful transform (e.g.
+`RewardSum`) cannot keep its state under an excluded key,
+wherever it is placed: building such a chain emits a `FutureWarning` and will raise a `ValueError` in v0.17.
+
 Examples
 
 ```

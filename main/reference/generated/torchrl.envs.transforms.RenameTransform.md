@@ -16,6 +16,14 @@ in the input tensordict after renaming.
 with a different name rather than being renamed. This allows for
 renaming immutable entries such as `"reward"` and `"done"`.
 
+Note
+
+With `create_copy=False`, the inverse pass renames the `out_keys_inv`
+entries back to `in_keys_inv`, so they are hidden from the `_step` of
+every transform of the chain. A stateful transform (e.g.
+`RewardSum`) cannot keep its state under such a key:
+building such a chain emits a `FutureWarning` and will raise a `ValueError` in v0.17.
+
 Examples
 
 ```

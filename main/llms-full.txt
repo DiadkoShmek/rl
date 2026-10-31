@@ -111843,11 +111843,11 @@ RENDER_BACKGROUND*: ClassVar[tuple[float, float, float] | None]**= None*
 Background color for the `mujoco-torch` ray-cast renderer.
 Subclasses (e.g. satellite) override to a deep-space tone.
 
-REWARD_PARAMS*: ClassVar[dict[str, float]]**= {'air_time_max': 0.3, 'air_time_min': 0.125, 'drift_speed_scale': 0.3, 'gait_progress_floor': 0.5, 'head_level_std': 0.3, 'head_pitch_target': 0.0, 'heading_std': 0.5, 'hop_velocity_amplitude': 0.1, 'jump_target_height': 0.005, 'launch_velocity_scale': 0.5, 'pose_std': 0.5, 'swing_target_height': 0.02, 'tracking_off_axis_std': 0.05, 'tracking_std': 0.1, 'turn_rate': 0.0, 'turn_rate_std': 0.5, 'upright_std': 0.22360679774997896, 'yaw_rate_std': 0.7071067811865476}*
+REWARD_PARAMS*: ClassVar[dict[str, float]]**= {'air_time_max': 0.3, 'air_time_min': 0.125, 'drift_speed_scale': 0.3, 'gait_progress_floor': 0.5, 'head_level_std': 0.3, 'head_pitch_target': 0.0, 'hop_velocity_amplitude': 0.1, 'jump_target_height': 0.005, 'launch_velocity_scale': 0.5, 'pose_std': 0.5, 'swing_target_height': 0.02, 'tracking_off_axis_std': 0.05, 'tracking_std': 0.1, 'turn_rate': 0.0, 'turn_rate_std': 0.5, 'upright_std': 0.22360679774997896, 'yaw_rate_std': 0.7071067811865476}*
 
 Default value of every term parameter a [`MicroDuckTask`](torchrl.envs.MicroDuckTask.html#torchrl.envs.MicroDuckTask) carries.
 
-REWARD_TERMS*: ClassVar[dict[str, _RegisteredTerm]]**= {'action_rate': _RegisteredTerm(fn=<function _action_rate>, weight=-0.1, per_second=True), 'air_time': _RegisteredTerm(fn=<function _air_time>, weight=3.0, per_second=True), 'ang_vel_xy': _RegisteredTerm(fn=<function _ang_vel_xy>, weight=-0.05, per_second=True), 'double_support': _RegisteredTerm(fn=<function _double_support>, weight=-1.0, per_second=True), 'drift': _RegisteredTerm(fn=<function _drift>, weight=0.0, per_second=True), 'head_level': _RegisteredTerm(fn=<function _head_level>, weight=1.0, per_second=True), 'heading': _RegisteredTerm(fn=<function heading>, weight=0.0, per_second=True), 'hop_rhythm': _RegisteredTerm(fn=<function _hop_rhythm>, weight=0.0, per_second=True), 'joint_velocity': _RegisteredTerm(fn=<function _joint_velocity>, weight=-0.001, per_second=True), 'jump': _RegisteredTerm(fn=<function _jump>, weight=0.0, per_second=True), 'launch': _RegisteredTerm(fn=<function _launch>, weight=0.0, per_second=True), 'lin_vel_z': _RegisteredTerm(fn=<function _lin_vel_z>, weight=-2.0, per_second=True), 'phase_contact': _RegisteredTerm(fn=<function _phase_contact>, weight=3.0, per_second=True), 'pose': _RegisteredTerm(fn=<function _pose>, weight=1.0, per_second=True), 'progress': _RegisteredTerm(fn=<function _progress>, weight=2.0, per_second=True), 'swing_height': _RegisteredTerm(fn=<function _swing_height>, weight=2.0, per_second=True), 'termination': _RegisteredTerm(fn=<function _termination>, weight=-4.0, per_second=False), 'tracking': _RegisteredTerm(fn=<function _tracking>, weight=2.0, per_second=True), 'turn': _RegisteredTerm(fn=<function _turn>, weight=0.0, per_second=True), 'upright': _RegisteredTerm(fn=<function _upright>, weight=2.0, per_second=True), 'yaw_rate': _RegisteredTerm(fn=<function _yaw_rate>, weight=1.0, per_second=True)}*
+REWARD_TERMS*: ClassVar[dict[str, _RegisteredTerm]]**= {'action_rate': _RegisteredTerm(fn=<function _action_rate>, weight=-0.1, per_second=True), 'air_time': _RegisteredTerm(fn=<function _air_time>, weight=3.0, per_second=True), 'ang_vel_xy': _RegisteredTerm(fn=<function _ang_vel_xy>, weight=-0.05, per_second=True), 'double_support': _RegisteredTerm(fn=<function _double_support>, weight=-1.0, per_second=True), 'drift': _RegisteredTerm(fn=<function _drift>, weight=0.0, per_second=True), 'head_level': _RegisteredTerm(fn=<function _head_level>, weight=1.0, per_second=True), 'hop_rhythm': _RegisteredTerm(fn=<function _hop_rhythm>, weight=0.0, per_second=True), 'joint_velocity': _RegisteredTerm(fn=<function _joint_velocity>, weight=-0.001, per_second=True), 'jump': _RegisteredTerm(fn=<function _jump>, weight=0.0, per_second=True), 'launch': _RegisteredTerm(fn=<function _launch>, weight=0.0, per_second=True), 'lin_vel_z': _RegisteredTerm(fn=<function _lin_vel_z>, weight=-2.0, per_second=True), 'phase_contact': _RegisteredTerm(fn=<function _phase_contact>, weight=3.0, per_second=True), 'pose': _RegisteredTerm(fn=<function _pose>, weight=1.0, per_second=True), 'progress': _RegisteredTerm(fn=<function _progress>, weight=2.0, per_second=True), 'swing_height': _RegisteredTerm(fn=<function _swing_height>, weight=2.0, per_second=True), 'termination': _RegisteredTerm(fn=<function _termination>, weight=-4.0, per_second=False), 'tracking': _RegisteredTerm(fn=<function _tracking>, weight=2.0, per_second=True), 'turn': _RegisteredTerm(fn=<function _turn>, weight=0.0, per_second=True), 'upright': _RegisteredTerm(fn=<function _upright>, weight=2.0, per_second=True), 'yaw_rate': _RegisteredTerm(fn=<function _yaw_rate>, weight=1.0, per_second=True)}*
 
 Registered reward terms by name, in weight-vector order.
 
@@ -222935,6 +222935,13 @@ not present, it is simply ignored.
 - **inverse** (*bool**,**optional*) - if `True`, the exclusion will occur during the `inv` call.
 Defaults to `False`.
 
+Note
+
+With `inverse=True` the excluded entries are hidden from the `_step` of
+every transform of the chain, so a stateful transform (e.g.
+`RewardSum`) cannot keep its state under an excluded key,
+wherever it is placed: building such a chain emits a `FutureWarning` and will raise a `ValueError` in v0.17.
+
 Examples
 
 ```
@@ -228937,6 +228944,14 @@ in the input tensordict after renaming.
 with a different name rather than being renamed. This allows for
 renaming immutable entries such as `"reward"` and `"done"`.
 
+Note
+
+With `create_copy=False`, the inverse pass renames the `out_keys_inv`
+entries back to `in_keys_inv`, so they are hidden from the `_step` of
+every transform of the chain. A stateful transform (e.g.
+`RewardSum`) cannot keep its state under such a key:
+building such a chain emits a `FutureWarning` and will raise a `ValueError` in v0.17.
+
 Examples
 
 ```
@@ -232993,6 +233008,19 @@ identical specs under different keys. The specs and tensordicts for the
 agents can be stacked together under a shared key, in order to run MARL
 algorithms that expect the tensors for observations, rewards, etc. to
 contain batched data for all the agents.
+
+Note
+
+When `in_key_inv` is set, the inverse pass unstacks that entry
+and removes it from the data handed to the environment *and* to the
+`_step` of every transform of the chain. A stateful transform that
+keeps its state under the stacked key, such as
+`RewardSum` reading `("agents", "reward")` from
+a `Stack` output, would silently lose that state at every step.
+Building such a chain emits a `FutureWarning` (a `ValueError` from v0.17): place the stateful
+transform *before* `Stack` and give it the per-agent keys (e.g.
+`("agent_0", "reward")`); `Stack` then stacks its output entries
+and the state is restored on every step.
 
 Parameters:
 
@@ -272327,13 +272355,6 @@ TensorDict with key "loss_bc".
 
 The keys that the module reads from the input tensordict.
 
-*property*out_keys
-
-The keys that the module writes to the output tensordict.
-
-After `select_out_keys()`, only the selected keys. The full list
-is in `out_keys_source`.
-
 set_keys(***kwargs*) → None[[source]](../../_modules/torchrl/objectives/bc.html#BCLoss.set_keys)
 
 Set tensordict key names.
@@ -273500,13 +273521,6 @@ Using a [`ValueEstimatorBase`](torchrl.objectives.value.ValueEstimatorBase.html#
 >>> ppo_loss.make_value_estimator(gae)
 ```
 
-*property*out_keys
-
-The keys that the module writes to the output tensordict.
-
-After `select_out_keys()`, only the selected keys. The full list
-is in `out_keys_source`.
-
 ---
 
 # DQNLoss
@@ -273700,13 +273714,6 @@ Using a [`ValueEstimatorBase`](torchrl.objectives.value.ValueEstimatorBase.html#
 >>> gae = GAE(gamma=0.99, lmbda=0.95, value_network=value_net)
 >>> ppo_loss.make_value_estimator(gae)
 ```
-
-*property*out_keys
-
-The keys that the module writes to the output tensordict.
-
-After `select_out_keys()`, only the selected keys. The full list
-is in `out_keys_source`.
 
 ---
 

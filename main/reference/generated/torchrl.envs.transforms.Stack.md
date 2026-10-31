@@ -17,6 +17,19 @@ agents can be stacked together under a shared key, in order to run MARL
 algorithms that expect the tensors for observations, rewards, etc. to
 contain batched data for all the agents.
 
+Note
+
+When `in_key_inv` is set, the inverse pass unstacks that entry
+and removes it from the data handed to the environment *and* to the
+`_step` of every transform of the chain. A stateful transform that
+keeps its state under the stacked key, such as
+`RewardSum` reading `("agents", "reward")` from
+a `Stack` output, would silently lose that state at every step.
+Building such a chain emits a `FutureWarning` (a `ValueError` from v0.17): place the stateful
+transform *before* `Stack` and give it the per-agent keys (e.g.
+`("agent_0", "reward")`); `Stack` then stacks its output entries
+and the state is restored on every step.
+
 Parameters:
 
 - **in_keys** (*sequence**of**NestedKey*) - keys to be stacked.
